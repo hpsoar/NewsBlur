@@ -29,15 +29,15 @@ except ImportError:
 # = DEFAULTS =
 # ============
 
-env.NEWSBLUR_PATH = "~/projects/newsblur"
-env.SECRETS_PATH = "~/projects/secrets-newsblur"
-env.VENDOR_PATH   = "~/projects/code"
+env.NEWSBLUR_PATH = "~/open-source/NewsBlur"
+env.SECRETS_PATH = "~/open-source/secrets-newsblur"
+env.VENDOR_PATH   = "~/open-source/code"
 
 # =========
 # = Roles =
 # =========
 
-env.user = 'sclay'
+env.user = 'bunny'
 try:
     hosts_path = os.path.expanduser(os.path.join(env.SECRETS_PATH, 'configs/hosts.yml'))
     roles = yaml.load(open(hosts_path))
@@ -51,6 +51,7 @@ except:
         'app'   : ['app01.newsblur.com'],
         'db'    : ['db01.newsblur.com'],
         'task'  : ['task01.newsblur.com'],
+        'local' : ['127.0.0.1'],
     }
 
 # ================

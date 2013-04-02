@@ -4,7 +4,7 @@ import os
 import datetime
 import redis
 import raven
-import django.http
+import django
 import re
 from mongoengine import connect
 from boto.s3.connection import S3Connection
@@ -21,7 +21,7 @@ ADMINS       = (
 SERVER_NAME  = 'newsblur'
 SERVER_EMAIL = 'server@newsblur.com'
 HELLO_EMAIL  = 'hello@newsblur.com'
-NEWSBLUR_URL = 'http://www.newsblur.com'
+NEWSBLUR_URL = 'http://127.0.0.1:8000'
 SECRET_KEY            = 'YOUR_SECRET_KEY'
 
 # ===========================
@@ -203,8 +203,9 @@ SESSION_ENGINE          = "django.contrib.sessions.backends.db"
 TEST_RUNNER             = "utils.testrunner.TestRunner"
 SESSION_COOKIE_NAME     = 'newsblur_sessionid'
 SESSION_COOKIE_AGE      = 60*60*24*365*2 # 2 years
-SESSION_COOKIE_DOMAIN   = '.newsblur.com'
-SENTRY_DSN              = 'https://XXXNEWSBLURXXX@app.getsentry.com/99999999'
+SESSION_COOKIE_DOMAIN   = '127.0.0.1'
+#SESSION_COOKIE_SECURE   = True
+SENTRY_DSN              = 'https://9941ae7d7a4d4fb2b933ab72a9320637:f68f689616f0452badfd4fbc648f3583@app.getsentry.com/7016'
 
 # ==============
 # = Subdomains =
@@ -570,4 +571,4 @@ if BACKED_BY_AWS.get('pages_on_s3') or BACKED_BY_AWS.get('icons_on_s3'):
     if BACKED_BY_AWS.get('icons_on_s3'):
         S3_ICONS_BUCKET = S3_CONN.get_bucket(S3_ICONS_BUCKET_NAME)
 
-django.http.request.host_validation_re = re.compile(r"^([a-z0-9.-_\-]+|\[[a-f0-9]*:[a-f0-9:]+\])(:\d+)?$")
+#django.http.request.host_validation_re = re.compile(r"^([a-z0-9.-_\-]+|\[[a-f0-9]*:[a-f0-9:]+\])(:\d+)?$")

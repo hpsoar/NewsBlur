@@ -232,6 +232,8 @@ def profile_is_premium(request):
 @login_required
 def stripe_form(request):
     user = request.user
+    print 'DEBUG-' * 80
+    print user
     success_updating = False
     stripe.api_key = settings.STRIPE_SECRET
     plan = int(request.GET.get('plan', 2))

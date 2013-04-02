@@ -207,7 +207,7 @@ def exception_retry(request):
     reset_fetch = json.decode(request.POST['reset_fetch'])
     feed = Feed.get_by_id(feed_id)
     original_feed = feed
-    
+
     if not feed:
         raise Http404
     

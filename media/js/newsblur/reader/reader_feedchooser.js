@@ -466,6 +466,8 @@ NEWSBLUR.ReaderFeedchooser.prototype = {
     },
     
     open_stripe_form: function() {
+        //DEBUG
+        alert("https://" + NEWSBLUR.URLs.domain + "/profile/stripe_form?plan=" + this.plan);
         window.location.href = "https://" + NEWSBLUR.URLs.domain + "/profile/stripe_form?plan=" + this.plan;
     },
     
